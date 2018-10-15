@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="container mx-auto col-lg-8">
+      <form action="takvim_ciz.php" method="post">
+        <fieldset class="form-group border p-2">
+          <legend  class="w-auto">Öğrenci Bilgileri</legend>
+          <div class="form-group row">
+            <label for="numara" class="col-sm-3 col-form-label">Öğrenci Numarası</label>
+            <div class="col-sm-5">
+              <input type="number" class="form-control" name="numara" id="numara" placeholder="Numaranız">
+            </div>
+          </div>
+          <!-- ================================================== -->
+          <!-- ==================== Ad Soyad ==================== -->
+          <!-- ================================================== -->
+
+          <div class="form-group row">
+            <label for="adsoyad" class="col-sm-3 col-form-label">Ad Soyad</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" name="adsoyad" id="adsoyad" placeholder="Adınız soyadınız">
+            </div>
+          </div>
+          <!-- ================================================== -->
+          <!-- ==================== T.C. Kimlik Numarası ==================== -->
+          <!-- ================================================== -->
+          <div class="form-group row">
+            <label for="telefonno" class="col-sm-3 col-form-label">Telefon Numarası</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" name="telefonno" id="telefonno" placeholder="Telefon Numaranız">
+            </div>
+          </div>
+          <!-- ================================================== -->
+          <!-- ==================== Program ==================== -->
+          <!-- ================================================== -->
+
+
+          <div class="form-group row">
+            <label for="program" class="col-sm-3 col-form-label">Programı</label>
+            <div class="col-sm-5">
+              <select name="program" id="program" class="form-control">
+                <option value="" selected disabled>Programınız</option>
+                <optgroup label="Elektronik ve Otomasyon Bölümü">
+                  <option value="Elektronik Teknolojisi Programı">Elektronik Teknolojisi Programı</option>
+                  <option value="Elektronik Teknolojisi Programı (İ.Ö.)">Elektronik Teknolojisi Programı (İ.Ö.)</option>
+                  <option value="Elektronik Haberleşme Teknolojisi Programı">Elektronik Haberleşme Teknolojisi Programı</option>
+                  <option value="Elektronik Haberleşme Teknolojisi Programı (İ.Ö.)">Elektronik Haberleşme Teknolojisi Programı (İ.Ö.)</option>
+                  <option value="Kontrol ve Otomasyon Teknolojisi Programı">Kontrol ve Otomasyon Teknolojisi Programı</option>
+                  <option value="Kontrol ve Otomasyon Teknolojisi Programı (İ.Ö.)">Kontrol ve Otomasyon Teknolojisi Programı (İ.Ö.)</option>
+                  <option value="Mekatronik (Uzaktan Eğitim)"></option>
+                </optgroup>
+
+
+                <optgroup label="Elektrik ve Enerji Bölümü">
+                  <option value="Elektrik Programı">Elektrik Programı</option>
+                  <option value="Elektrik (Uzaktan Eğitim)">Elektrik (Uzaktan Eğitim)</option>
+                </optgroup>
+
+                <optgroup label="Bilgisayar Teknolojileri Bölümü">
+                  <option value="Bilgisayar Programcılığı Programı">Bilgisayar Programcılığı Programı</option>
+                  <option value="Bilgisayar Programcılığı Programı (İ.Ö.)">Bilgisayar Programcılığı Programı (İ.Ö.)</option>
+                  <option value="İnternet ve Ağ Teknolojileri (Uzaktan Eğitim)">İnternet ve Ağ Teknolojileri (Uzaktan Eğitim)</option>
+                </optgroup>
+
+                <optgroup label="Makine ve Metal Teknolojileri Bölümü">
+                  <option value="Makine Programı">Makine Programı</option>
+                  <option value="Makine Programı (İ.Ö.)">Makine Programı (İ.Ö.)</option>
+                </optgroup>
+
+                <optgroup label="Motorlu Araçlar ve Ulaştırma Teknolojileri Bölümü">
+                  <option value="Otomotiv Teknolojisi Programı">Otomotiv Teknolojisi Programı</option>
+                  <option value="Otomotiv Teknolojisi Programı (İ.Ö.)">Otomotiv Teknolojisi Programı (İ.Ö.)</option>
+                </optgroup>
+
+                <optgroup label="İnşaat Bölümü">
+                  <option value="İnşaat Programı">İnşaat Programı</option>
+                  <option value="İnşaat Programı (i.Ö.)">İnşaat Programı (İ.Ö.)</option>
+                </optgroup>
+                <optgroup label="Mimarlık ve Şehir Planlama Bölümü">
+                  <option value="Harita ve Kadastro Programı">Harita ve Kadastro Programı</option>
+                  <option value="Harita ve Kadastro Programı (İ.Ö.)">Harita ve Kadastro Programı (İ.Ö.)</option>
+                </optgroup>
+
+                <optgroup label="Kimya ve Kimyasal İşleme Teknolojisi Bölümü">
+                  <option value="Kimya Teknolojisi Programı">Kimya Teknolojisi Programı</option>
+                  <option value="Kimya Teknolojisi Programı (İ.Ö.)">Kimya Teknolojisi Programı (İ.Ö.)</option>
+                </optgroup>
+
+                <optgroup label="Tekstil, Giyim, Ayakkabı ve Deri Bölümü">
+                  <option value="Giyim Üretim Teknolojisi Programı">Giyim Üretim Teknolojisi Programı</option>
+                  <option value="Giyim Üretim Teknolojisi Programı (İ.Ö.)">Giyim Üretim Teknolojisi Programı (İ.Ö.)</option>
+                </optgroup>
+                <optgroup label="Tasarım Bölümü">
+                  <option value="Moda Tasarımı Programı">Moda Tasarımı Programı</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+          <!-- ================================================== -->
+          <!-- ==================== Yapılacak Stajlar ==================== -->
+          <!-- ================================================== -->
+          <div class="form-group row">
+            <label for="yapilacakstajlar" class="col-sm-3 col-form-label">Yapılacak Stajlar</label>
+            <div class="col-sm-5">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="EDE102" name="yapilacakstajlar[]" id="yapilacakstajlar">
+                <label class="form-check-label" for="yapilacakstajlar">
+                  EDE102 (1. Staj)
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="EDE202" name="yapilacakstajlar[]" id="yapilacakstajlar">
+                <label class="form-check-label" for="yapilacakstajlar">
+                  EDE202 (2. Staj)
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- ================================================== -->
+          <!-- ==================== Staj Başlama Tarihi ==================== -->
+          <!-- ================================================== -->
+          <div class="form-group row">
+            <label for="stajbaslamatarihi" class="col-sm-3 col-form-label">Staj Başlama Tarihi</label>
+            <div class="col-sm-5">
+              <select name="stajbaslamatarihi" class="form-control">
+                <option value="" selected disabled>Staj Dönemi ve Başlama Tarihi</option>
+                <optgroup label="GÜZ EK STAJ">
+                  <option value="guz_0">15 Ekim 2018</option>
+                  <option value="guz_1">05 Kasım 2018</option>
+                  <option value="guz_2">19 Kasım 2018</option>
+
+                </optgroup>
+                <optgroup label="BAHAR EK STAJ">
+                  <option value="bahar_0">04 Şubat 2019</option>
+                  <option value="bahar_1">18 Şubat 2019</option>
+                  <option value="bahar_2">04 Mart 2019</option>
+                </optgroup>
+                <optgroup label="YAZ STAJI">
+                  <option value="yaz_0">24 Haziran 2019</option>
+                  <option value="yaz_1">22 Temmuz 2019</option>
+                  <option value="yaz_2">29 Temmuz 2019</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="haftagun" class="col-sm-3 col-form-label">Haftada Çalışılacak Gün Sayısı</label>
+            <div class="col-sm-5">
+              <select name="haftagun" id="haftagun" class="form-control">
+                <option value="" selected disabled>Haftada kaç gün çalışacaksınız?</option>
+                <option value="5">5 Gün</option>
+                <option value="6">6 Gün</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+        <!-- ================================================== -->
+        <!-- ==================== İş Yeri Mersis No ==================== -->
+        <!-- ================================================== -->
+        <fieldset class="form-group border p-2">
+          <legend  class="w-auto">İş Yerine Ait Bilgiler</legend>
+          <div class="form-group row">
+            <label for="mersisno" class="col-sm-3 col-form-label">İş Yeri Mersis No</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" name="mersisno" id="mersisno" placeholder="Mersis No">
+            </div>
+          </div>
+          <!-- ================================================== -->
+          <!-- ==================== İş Yeri Vergi No ==================== -->
+          <!-- ================================================== -->
+          <div class="form-group row">
+            <label for="vergino" class="col-sm-3 col-form-label">İş Yeri Vergi No</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" name="vergino" id="vergino" placeholder="Vergi No">
+            </div>
+          </div>
+          <!-- ================================================== -->
+          <!-- ==================== İş Yeri Adı Ünvanı No ==================== -->
+          <!-- ================================================== -->
+          <div class="form-group row">
+            <label for="isyeriadi" class="col-sm-3 col-form-label">İş Yeri Adı/Ünvanı</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" name="isyeriadi" id="isyeriadi" placeholder="İş Yeri Adı">
+            </div>
+          </div>
+          <!-- ================================================== -->
+          <!-- ==================== İş Yeri Adresi ==================== -->
+          <!-- ================================================== -->
+          <div class="form-group row">
+            <label for="isyeriadresi" class="col-sm-3 col-form-label">İş Yeri Adresi</label>
+            <div class="col-sm-5">
+              <textarea class="form-control" rows="5" id="isyeriadresi" name="isyeriadresi" placeholder="İş Yeri Adresi"></textarea>
+            </div>
+          </div>
+          <!-- ================================================== -->
+          <!-- ==================== Faaliyet Alanı ==================== -->
+          <!-- ================================================== -->
+          <div class="form-group row">
+            <label for="faaliyetalani" class="col-sm-3 col-form-label">Faaliyet Alanı</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" name="faaliyetalani" id="faaliyetalani" placeholder="Faaliyet Alanı">
+            </div>
+          </div>
+          <!-- ================================================== -->
+          <!-- ==================== İş Telefonu ==================== -->
+          <!-- ================================================== -->
+          <div class="form-group row">
+            <label for="istelefonu" class="col-sm-3 col-form-label">İş Telefonu</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" name="istelefonu" id="istelefonu" placeholder="İş Telefonu">
+            </div>
+          </div>
+          <!-- ================================================== -->
+          <!-- ==================== İş E-Posta ==================== -->
+          <!-- ================================================== -->
+          <div class="form-group row">
+            <label for="iseposta" class="col-sm-3 col-form-label">E-Posta</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" name="iseposta" id="iseposta" placeholder="E-Posta">
+            </div>
+          </div>
+          <!-- ================================================== -->
+          <!-- ==================== İş Faks  ==================== -->
+          <!-- ================================================== -->
+          <div class="form-group row">
+            <label for="isfaxno" class="col-sm-3 col-form-label">Fax No</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" name="isfaxno" id="isfaxno" placeholder="Fax No">
+            </div>
+          </div>
+          <!-- ================================================== -->
+          <!-- ==================== Yönetici ==================== -->
+          <!-- ================================================== -->
+
+          <div class="form-group row">
+            <label for="yonetici" class="col-sm-3 col-form-label">İş Yerindeki Yönetici Sayısı</label>
+            <div class="col-sm-2">
+              <input type="number" class="form-control" name="yonetici" id="yonetici">
+            </div>
+          </div>
+
+          <!-- ================================================== -->
+          <!-- ==================== Mühendis ==================== -->
+          <!-- ================================================== -->
+
+          <div class="form-group row">
+            <label for="muhendis" class="col-sm-3 col-form-label">İş Yerindeki Mühendis Sayısı</label>
+            <div class="col-sm-2">
+              <input type="number" class="form-control" name="muhendis" id="muhendis">
+            </div>
+          </div>
+
+          <!-- ================================================== -->
+          <!-- ==================== Teknisyen ==================== -->
+          <!-- ================================================== -->
+
+          <div class="form-group row">
+            <label for="teknisyen" class="col-sm-3 col-form-label">İş Yerindeki Teknisyen Sayısı</label>
+            <div class="col-sm-2">
+              <input type="number" class="form-control" name="teknisyen" id="teknisyen">
+            </div>
+          </div>
+          <!-- ================================================== -->
+          <!-- ==================== Tekniker ==================== -->
+          <!-- ================================================== -->
+
+          <div class="form-group row">
+            <label for="tekniker" class="col-sm-3 col-form-label">İş Yerindeki Tekniker Sayısı</label>
+            <div class="col-sm-2">
+              <input type="number" class="form-control" name="tekniker" id="tekniker">
+            </div>
+          </div>
+
+          <!-- ================================================== -->
+          <!-- ==================== İşçi ==================== -->
+          <!-- ================================================== -->
+
+          <div class="form-group row">
+            <label for="isci" class="col-sm-3 col-form-label">İş Yerindeki İşci Sayısı</label>
+            <div class="col-sm-2">
+              <input type="number" class="form-control" name="isci" id="isci">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="ucret" class="col-sm-3 col-form-label">İşyerinde Öğrenciye Ücret Ödemesi Yapılacak mı?(Mutlaka Belirtilmesi Gerekir)</label>
+            <div class="col-sm-3">
+              <select name="ucret" id="ucret" class="form-control">
+                <option value="" selected disabled>Ücret verilecek mi?</option>
+                <option value="Evet">Evet</option>
+                <option value="Hayır">Hayır</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="calisansayisi" class="col-sm-3 col-form-label">İşletmede Çalışan
+              Personel Sayısı (Ücret Ödemesi Yapılacaksa Personel Sayısı Bildirilmesi
+              Zorunludur)</label>
+            <div class="col-sm-2">
+              <input type="number" class="form-control" name="calisansayisi" id="calisansayisi">
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </fieldset>
+
+        <button type="submit" class="btn btn-primary">Sign in</button>
+
+      </form>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</body>
+</html>
