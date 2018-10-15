@@ -1,3 +1,4 @@
+<?php xdebug_enable(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -146,9 +147,6 @@ $staj=new StajHesapla($baslama_donemi, $baslama_tarihi, $hstajgunu,$ystajsayisi)
 $staj->iss_gunleri();
 $staj->staj_gunleri_hesapla();
 
-echo "<pre>";
-print_r($staj->staj_gunleri);
-echo "</pre>";
 
 $staj_tarihleri["birinci"]=array("baslama"=>$staj->staj_gunleri[0][0], "bitis"=>end($staj->staj_gunleri[0]));
 
@@ -169,7 +167,8 @@ if(array_key_exists("ikinci", $staj_tarihleri)) {
   }
 }
 
-
+$ddd=$staj->staj_gunleri;
+var_dump($ddd);
 var_dump($tum_staj_baslama);
 var_dump($tum_staj_bitis);;
 
