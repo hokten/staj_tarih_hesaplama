@@ -1,0 +1,12 @@
+{% block daynumber %}
+  <div class="day_number">
+    {% set eksinif = '' %}
+    {% if (gunler[i]|diziara(resmitatiller) is not same as(false)) or  (i == 6) or (i == 7) %}
+      {% set eksinif = ' tatilgunu' %}
+    {% endif %}
+    <div class="numberCircle{{ eksinif }}">{{ gunler[i]|date('j') }}</div>
+  </div>
+{% endblock %}
+
+
+

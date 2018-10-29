@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Webpage</title>
+<link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+<div class="staj_baslama_bitis_ozet">
+<table>
+<tr><td colspan="4">Birinci Staj</td></tr>
+<tr>
+<td>Başlama Tarihi</td>
+<td>{{ stajtarihleri.birinci.baslama|date('d-m-Y') }}</td>
+<td>Bitiş Tarihi</td>
+<td>{{ stajtarihleri.birinci.bitis|date('d-m-Y') }}</td>
+</tr>
+{% if stajtarihleri.ikinci is defined %}
+
+
+
+  <tr>
+<td colspan='4'>İkinci Staj</td>
+</tr>
+<tr>
+{% if stajtarihleri.ikinci|length > 0 %}
+  <td>Başlama</td>
+<td>{{ stajtarihleri.ikinci.baslama|date('d-m-Y') }}</td>
+<td>Bitiş</td>
+<td>{{ stajtarihleri.ikinci.bitis|date('d-m-Y') }}</td>
+{% else %}
+  <td colspan='4'>İkinci stajı yapabilmek için yeterli gün yok</td>
+{% endif %}
+</tr>
+{% endif %}
+</table>
+</div>
+</body>
+</html>

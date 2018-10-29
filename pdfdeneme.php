@@ -15,7 +15,8 @@ $cikti=<<<CIKTI
         margin-top:2%;
 }
 body {
-  font-family:Arial;
+   font-family:Arial;
+   font-size:13px;
 }
 div {
   padding-bottom:5px;
@@ -29,7 +30,8 @@ td.header {
 }
 
 td {
-    border: 1px solid black;
+   border: 1px solid black;
+   padding-left:3px;
 }
 .calisanlar td {
     border: 1px dotted black;

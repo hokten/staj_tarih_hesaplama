@@ -1,0 +1,10 @@
+{% block daystable %}
+  <div class="days_table">
+    {% for gunler in haftalar %}
+      <div class="days_row">
+        {% block days %}{% endblock %}
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
+

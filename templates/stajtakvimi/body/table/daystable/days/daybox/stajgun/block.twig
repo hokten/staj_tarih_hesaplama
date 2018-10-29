@@ -1,0 +1,10 @@
+{% block stajgunu %}
+  {% for j in ['EDE102','EDE202'] %}
+    {% if stajgunleri[j] is defined %}
+      {% if gunler[i]|diziara(stajgunleri[j]) is not same as(false) %}
+        {# <div class='staj_{{ j|lower }}'>{{ j }}</div> #}
+        <div class='staj_number_{{ j|lower }}'>{{ gunler[i]|diziara(stajgunleri[j])+1 }}. Gün</div>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endblock %}

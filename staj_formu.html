@@ -11,13 +11,14 @@
   </head>
   <body>
     <div class="container mx-auto col-lg-8">
-      <form action="takvim_ciz.php" method="post">
+      <form action="ccc.php" method="post" class="needs-validation" novalidate>
         <fieldset class="form-group border p-2">
           <legend  class="w-auto">Öğrenci Bilgileri</legend>
           <div class="form-group row">
             <label for="numara" class="col-sm-3 col-form-label">Öğrenci Numarası</label>
             <div class="col-sm-5">
-              <input type="number" class="form-control" name="numara" id="numara" placeholder="Numaranız">
+              <input type="number" class="form-control" name="numara" id="numara" placeholder="Numaranız" required>
+              <div class="invalid-feedback">Girdiğiniz öğrenci numarası hatalı</div>
             </div>
           </div>
           <!-- ================================================== -->
@@ -36,7 +37,9 @@
           <div class="form-group row">
             <label for="telefonno" class="col-sm-3 col-form-label">Telefon Numarası</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" name="telefonno" id="telefonno" placeholder="Telefon Numaranız">
+              <input type="tel" class="form-control" name="telefonno" id="telefonno" placeholder="(501)1112233" pattern="\([1-9]{1}[0-9]{2}\)[0-9]{7}" required>
+              <div class="invalid-feedback">Girdiğiniz telefon numarası hatalı</div>
+
             </div>
           </div>
           <!-- ================================================== -->
@@ -47,7 +50,7 @@
           <div class="form-group row">
             <label for="program" class="col-sm-3 col-form-label">Programı</label>
             <div class="col-sm-5">
-              <select name="program" id="program" class="form-control">
+              <select name="program" id="program" class="form-control" required>
                 <option value="" selected disabled>Programınız</option>
                 <optgroup label="Elektronik ve Otomasyon Bölümü">
                   <option value="Elektronik Teknolojisi Programı">Elektronik Teknolojisi Programı</option>
@@ -112,13 +115,13 @@
             <label for="yapilacakstajlar" class="col-sm-3 col-form-label">Yapılacak Stajlar</label>
             <div class="col-sm-5">
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="EDE102" name="yapilacakstajlar[]" id="yapilacakstajlar">
+                <input class="form-check-input" type="checkbox" value="EDE102" name="yapilacakstajlar[]" id="yapilacakstajlar" required>
                 <label class="form-check-label" for="yapilacakstajlar">
                   EDE102 (1. Staj)
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="EDE202" name="yapilacakstajlar[]" id="yapilacakstajlar">
+                <input class="form-check-input" type="checkbox" value="EDE202" name="yapilacakstajlar[]" id="yapilacakstajlar" required>
                 <label class="form-check-label" for="yapilacakstajlar">
                   EDE202 (2. Staj)
                 </label>
@@ -342,6 +345,34 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+'use strict';
+var requiredCheckboxes = $(':checkbox[required]');
+    requiredCheckboxes.change(function(){
+        if(requiredCheckboxes.is(':checked')) {
+            requiredCheckboxes.removeAttr('required');
+        } else {
+            requiredCheckboxes.attr('required', 'required');
+        }
+    });
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
   </body>
 </body>
 </html>

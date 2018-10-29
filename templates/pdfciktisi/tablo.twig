@@ -1,0 +1,28 @@
+<table class="tablo">
+  <tr>
+    {% block tablo_basligi %}{% endblock %}
+  </tr>
+  <tr>
+    {% block tablo_aciklama %}{% endblock %}
+  </tr>
+  {% if veriler is defined %}
+    {% for satir in veriler %}
+      <tr>
+        {% if satir.sag is defined %}
+          <td class="{{ satir.sol.class }}">{{ satir.sol.label }}</td>
+          <td>{{ satir.sol.value }}</td>
+          <td class="{{ satir.sag.class }}">{{ satir.sag.label }}</td>
+          <td>{{ satir.sag.value }}</td>
+        {% else %}
+          <td class="{{ satir.sol.class }}">{{ satir.sol.label }}</td>
+          <td colspan="3">{{ satir.sol.value }}</td>
+        {% endif %}
+      </tr>
+    {% endfor %}
+  {% endif %}
+  {% block tablo_ekstra %}{% endblock %}
+  {% block tablo_beyan %}{% endblock %}
+</table>
+
+
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+  {% include 'header.twig' %}
+  <body>
+    <div class="container">
+      {% for curstaj in tum_veriler %}
+        {% if loop.index == 2 %}
+          <div style="border-bottom:none; border-top:none; page-break-before: always"></div>
+        {% endif %}
+
+
+
+        {########################################## Form Basligi Bas #########################################}
+        <div class="bolum">
+          {% include 'form_basligi.twig' %}
+        </div>
+        {###############################            Form Basligi Son           ###############################}
+
+
+        {###############################           Ogrenci Bolumu Bas          ###############################}
+        <div class="bolum">
+          {% embed 'tablo.twig' with {'veriler' : curstaj.ogrenci_alanlari } %}
+
+            {% block tablo_basligi %}
+              {% include 'tablo_basligi.twig' with {'colspan' : '4', 'bolum_numarasi' : '1' , 'bolum_basligi' : 'ENDÜSTRİYE DAYALI EĞİTİM YAPACAK ÖĞRENCİYE AİT BİLGİLER'} %}  
+            {% endblock %}
+
+            {% block tablo_aciklama %}
+              {% include 'tablo_aciklama.twig' with {'colspan' : '4', 'aciklama' : 'Öğrenci tarafından doldurulacaktır'} %}  
+            {% endblock %}
+
+            {% block tablo_beyan %}
+              <tr>
+                <td colspan="4" style="padding:5px; font-size:10px; height:60px; vertical-align:top">
+                  Yukarıda belirtilen tarihler arasında  20 (Yirmi) iş günlük stajımı yapacağım. 
+                  Staj grubu değişikliği, iş yeri değişikliği, stajdan vazgeçmem halinde ve staj süresince 
+                  sağlık kurumlarından alacağım raporu <span>en geç 3 (üç) iş günü</span> içinde Yüksekokul Müdürlüğüne
+                  bildireceğimi beyan ve taahhüt ediyorum.
+                  <table style="width:100%;font-size:9px;">
+                    <tr>
+                      <td style="width:80%; border:none"></td>
+                      <td style="text-align:center; border:none">{{ "now"|date('d-m-Y') }}<br /><span class="soluk">Öğrencinin İmzası</span></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            {% endblock %}
+          {% endembed %}
+        </div>
+
+        <div class="bolum">
+          {% embed 'tablo.twig' with {'veriler' : curstaj.isyeri_alanlari } %}
+
+            {% block tablo_basligi %}
+              {% include 'tablo_basligi.twig' with {'colspan' : '4', 'bolum_numarasi' : '1' , 'bolum_basligi' : 'ENDÜSTRİYE DAYALI EĞİTİM YAPILACAK YERE AİT BİLGİLER'} %}  
+            {% endblock %}
+
+            {% block tablo_aciklama %}
+              {% include 'tablo_aciklama.twig' with {'colspan' : '4', 'aciklama' : 'Öğrenci tarafından doldurulacaktır'} %}  
+            {% endblock %}
+
+            {% block tablo_ekstra %}
+              {% include 'isyeri_ekstra.twig' %}
+            {% endblock %}
+          {% endembed %}
+          {% include 'isyeri_beyan.twig' %}
+        </div>
+
+
+        <div class="bolum">
+          {% embed 'tablo.twig' %}
+
+            {% block tablo_basligi %}
+              {% include 'tablo_basligi.twig' with {'colspan' : '1', 'bolum_numarasi' : '3' , 'bolum_basligi' : 'BÖLÜM STAJ ONAYI'} %}  
+            {% endblock %}
+
+            {% block tablo_aciklama %}
+              {% include 'tablo_aciklama.twig' with {'colspan' : '1', 'aciklama' : 'Öğrencinin Danışmanı veya Bölüm Başkanı tarafından onaylanacaktır.'} %}  
+            {% endblock %}
+
+            {% block tablo_ekstra %}
+              <tr>
+                <td colspan="1" style="text-align:center; height:60px; vertical-align:top">Öğrencinin, yukarıda bilgileri yer alan kurumda/işletmede staj yapması uygundur.<br /><br /><span class="soluk">Kaşe ve İmza</span><br />&nbsp;</br />&nbsp;<br />
+                </td>
+              </tr>
+            {% endblock %}
+          {% endembed %}
+        </div>
+
+        {% include 'genel_aciklamalar.twig' %}
+      {% endfor %}
+
+    </div>
+  </body>
+</html>
+{% use 'header.twig' %}
+

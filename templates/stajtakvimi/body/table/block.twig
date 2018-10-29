@@ -1,0 +1,12 @@
+{% block table %}
+  {% for yil, aylar in takvim %} {# yil for baslangic #}
+    {% for ay, haftalar in aylar %} {# ay for baslangic #}
+      <div class='month_container'>
+        {% block monthtable %}{% endblock %}
+        {% block weekdaystable %}{% endblock %}
+        {% block daystable %}{% endblock %}
+      </div>
+    {% endfor %}
+  {% endfor %}
+{% endblock %}
+

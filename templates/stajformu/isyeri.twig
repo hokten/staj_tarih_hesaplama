@@ -1,0 +1,257 @@
+{% block isyeri %}
+  {% embed 'utils/three-five.twig' %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("mersisno","İşyeri Mersis No", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.input("mersisno","text", "form-control", {"placeholder" : "Mersis No"}) }}
+    {% endblock %}
+
+  {% endembed %}
+
+  {##############################################################}
+  {#########################İş Yeir Vergi No#####################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("vergino","İşyeri Vergi No", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.input("vergino","text", "form-control", {"placeholder" : "Vergi No"}) }}
+    {% endblock %}
+
+  {% endembed %}
+
+  {##############################################################}
+  {#####################İş Yeri Adı/Ünvanı#######################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' with { sutun : 7 } %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("isyeriadi","İş Yeri Adı/Ünvanı", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.input("isyeriadi","text", "form-control", {"placeholder" : "İş Yerinin Adı"}) }}
+    {% endblock %}
+
+  {% endembed %}
+
+
+
+  {##############################################################}
+  {#######################İş Yeri Adresi#########################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' with { sutun : 5 } %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("isyeriadresi","İş Yeri Adresi", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.textarea("isyeriadresi","form-control", "5", "İş Yeri Adresi", {"required" : "true"}) }}
+    {% endblock %}
+
+  {% endembed %}
+
+  {##############################################################}
+  {#####################Faaliyet Alanı###########################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("faaliyetalani","Faaliyet Alanı", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.input("faaliyetalani","text", "form-control", {"placeholder" : "Faaliyet Alanı"}) }}
+    {% endblock %}
+
+  {% endembed %}
+
+  {##############################################################}
+  {#########################İş Telefonu##########################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("istelefonu", "İş Telefonu", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.input("istelefonu", "tel", "form-control", {"placeholder" : "İş Telefonu"}) }}
+    {% endblock %}
+
+  {% endembed %}
+
+  {##############################################################}
+  {##########################E-Posta#############################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("iseposta","E-Posta", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.input("iseposta","email", "form-control", {"placeholder" : "E-Posta"}) }}
+    {% endblock %}
+
+  {% endembed %}
+
+  {##############################################################}
+  {############################Fax No############################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("isfaxno", "Fax No", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.input("isfaxno", "tel", "form-control", {"placeholder" : "Fax No"}) }}
+    {% endblock %}
+
+  {% endembed %}
+
+  {##############################################################}
+  {############################yönetici##########################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' with { sutun : 2 } %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("yonetici", "İş Yerindeki Yönetici Sayısı", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.input("yonetici", "number", "form-control") }}
+    {% endblock %}
+
+  {% endembed %}
+
+
+  {##############################################################}
+  {######################### Mühendis ###########################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' with { sutun : 2 } %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("muhendis","İş Yerindeki Mühendis Sayısı", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.input("muhendis","number", "form-control") }}
+    {% endblock %}
+
+  {% endembed %}
+
+  {##############################################################}
+  {######################### Teknisyen  ##########################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' with { sutun : 2 } %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("teknisyen", "İş Yerindeki Teknisyen Sayısı", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.input("teknisyen", "number", "form-control") }}
+    {% endblock %}
+
+  {% endembed %}
+
+  {##############################################################}
+  {######################### Tekniker  ##########################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' with { sutun : 2 } %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("tekniker","İş Yerindeki Tekniker Sayısı", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.input("tekniker", "number", "form-control") }}
+    {% endblock %}
+
+  {% endembed %}
+
+  {##############################################################}
+  {####################Ücret Verilecek mi?#######################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' with { sutun : 3 } %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("ucret","İşyerinde Öğrenciye Ücret Ödemesi Yapılacak mı?(Mutlaka Belirtilmesi Gerekir)", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.select("ucret","form-control", ucret, "Ücret verilecek mi?")  }}
+    {% endblock %}
+
+    {% block warningblock %}
+      Bu alanı boş geçemezsiniz!
+    {% endblock %}
+
+  {% endembed %}
+
+  {##############################################################}
+  {################## Personel Sayısı  ##########################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' with { sutun : 2 } %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("calisansayisi","Personel Sayısı (Ücret Ödemesi Yapılacaksa Personel Sayısı Bildirilmesi Zorunludur)", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.input("calisansayisi", "number", "form-control") }}
+    {% endblock %}
+
+  {% endembed %}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

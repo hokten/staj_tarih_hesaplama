@@ -260,13 +260,13 @@ GUNHEADER;
           echo '<div class="day_number"><div class="numberCircle">'.$haftanin_gunleri[$i]->format('j')."</div></div>";
 
           // TODO burası for dongusu ile kisalabilir
-          if(array_key_exists(0,$yeni1->staj_gunleri)) {
-            $staj_bir_cakisma=array_search($haftanin_gunleri[$i], $yeni1->staj_gunleri[0]);
+          if(array_key_exists(0,$staj->staj_gunleri)) {
+             $staj_bir_cakisma=array_search($haftanin_gunleri[$i], $staj->staj_gunleri[0]);
             $staj_bir_content=$staj_bir_cakisma===false ? "" : "<div class='staj_number_bir'>".($staj_bir_cakisma+1).". Gün</div>";
             echo $staj_bir_content;
           }
-          if(array_key_exists(1,$yeni1->staj_gunleri)) {
-            $staj_iki_cakisma=array_search($haftanin_gunleri[$i], $yeni1->staj_gunleri[1]);
+          if(array_key_exists(1,$staj->staj_gunleri)) {
+             $staj_iki_cakisma=array_search($haftanin_gunleri[$i], $staj->staj_gunleri[1]);
             $staj_iki_content=$staj_iki_cakisma===false ? "" : "<div class='staj_number_iki'>".($staj_iki_cakisma+1).". Gün</div>";
             echo $staj_iki_content;
           }

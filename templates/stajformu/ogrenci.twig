@@ -1,0 +1,143 @@
+{% block ogrenci %}
+  {% embed 'utils/three-five.twig' %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("numara","Öğrenci Numarası", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.input("numara","number", "form-control", {"placeholder" : "Numaranız", "required" : "true"}) }}
+    {% endblock %}
+
+    {% block warningblock %}
+      Öğrenci numarası hatalı.
+    {% endblock %}
+  {% endembed %}
+
+  {##############################################################}
+  {######################### Adi Soyadi #########################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("adsoyad","Adınız Soyadınız", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.input("adsoyad","text", "form-control") }}
+    {% endblock %}
+
+    {% block warningblock %}
+      Ad Soyad alanına değer girmediniz.
+    {% endblock %}
+  {% endembed %} 
+
+  {##############################################################}
+  {################## Telefon Numarası ##########################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("telefonno","Telefon Numarası", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.input("telefonno","tel", "form-control", {"placeholder" : "(XXX)YYYYYYY", "required" : "true", "pattern" : "\\(\\d{3}\\)\\s\\d{3}\\s\\d{2}\\s\\d{2}"}) }}
+    {% endblock %}
+
+    {% block warningblock %}
+      Telefon numarasını hatalı giriniz.
+    {% endblock %}
+  {% endembed %} 
+
+  {##############################################################}
+  {########################### Program ##########################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("telefonno","Telefon Numarası", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.select("program","form-control", bolumprogram, "sfsdf")  }}
+    {% endblock %}
+
+    {% block warningblock %}
+      Telefon numarasını hatalı giriniz.
+    {% endblock %}
+  {% endembed %} 
+
+  {##############################################################}
+  {########################### Program ##########################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' %}
+    {% import "utils/macros.forms.twig" as form %}
+    {% block labelblock %}
+      {{ form.label("yapilacakstaj","Yapılacak Stajlar", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      <div class="form-check">
+        {{ form.checkbox("yapilacakstajlar[]", "yapilacakstaj1", "form-check-input", "EDE102", {"required" : "true"}) }}
+        {{ form.label("yapilacakstaj1","EDE102 (1. Staj)", "form-check-label") }}
+      </div>
+      <div class="form-check">
+        {{ form.checkbox("yapilacakstajlar[]", "yapilacakstaj2", "form-check-input", "EDE202", {"required" : "true"}) }}
+        {{ form.label("yapilacakstaj2","EDE202 (2. Staj)", "form-check-label") }}
+      </div>
+    {% endblock %}
+
+    {% block warningblock %}
+      Telefon numarasını hatalı giriniz.
+    {% endblock %}
+  {% endembed %}
+
+  {##############################################################}
+  {########################### Program ##########################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("stajbaslamatarihi","Staj Başlama Tarihi", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.select("stajbaslamatarihi","form-control", stajdonemtarih, "Staj Dönemi ve Başlama Tarihi")  }}
+    {% endblock %}
+
+    {% block warningblock %}
+      Telefon numarasını hatalı giriniz.
+    {% endblock %}
+  {% endembed %} 
+
+  {##############################################################}
+  {########################### Program ##########################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("haftagun","Haftada Çalışılacak Gün Sayısı", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.select("haftagun","form-control", haftalikgun, "Haftada kaç gün çalışacaksınız?")  }}
+    {% endblock %}
+
+    {% block warningblock %}
+      Telefon numarasını hatalı giriniz.
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

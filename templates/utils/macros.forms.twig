@@ -1,0 +1,46 @@
+{% macro input(name, type, class, attributes) %}
+<input name="{{ name }}" type="{{ type }}" class="{{ class }}"{% for attr, value in attributes %} {{ attr }}="{{ value|raw }}"{% endfor %}{% if not attributes.id is defined %} id="{{ name }}"{% endif %} />
+{% endmacro %}
+
+
+{% macro label(id, content, class, attributes) %}
+<label for="{{ id }}" class="{{ class }}"{% for attr, value in attributes %} {{ attr }}="{{ value }}"{% endfor %}>{{ content|e }}</label>
+{% endmacro %}
+
+
+{% macro select(name, class, values, placeholder) %}
+<select name="{{ name }}" id="{{ name }}" class="{{ class }}">
+  <option value="" selected disabled>{{ placeholder }}</option>
+  {% for sdizi in values %}
+    {% if sdizi.ogroup is defined %}<optgroup label="{{ sdizi.ogroup }}">{% endif %}
+      {% for dval in sdizi.vals %}
+      <option {% if dval.key is defined %} value="{{ dval.key }}" {% else %} value="{{ dval.value }}"{% endif %}>{{ dval.value }}</option>
+    {% endfor %}
+    {% if sdizi.ogroup is defined %}</optgroup>{% endif %}
+{% endfor %}
+</select>
+{% endmacro %}
+
+{% macro textarea(name, class, rows, placeholder, attributes) %}
+<textarea name="{{ name }}" id="{{ name }}" class="{{ class }}" rows="{{ rows }}"  placeholder="{{ placeholder }}"{% for attr, value in attributes %} {{ attr }}="{{ value }}"{% endfor %}></textarea>
+{% endmacro %}
+
+{% macro checkbox(name, id, class, value, attributes) %}
+<input type="checkbox" name="{{ name }}" id="{{ id|default(name) }}" class="{{ class }}" value="{{ value }}"{% for attr, value in attributes %} {{ attr }}="{{ value }}"{% endfor %} />
+{% endmacro %}
+
+
+{# Kapsayicilar #}
+
+{% macro formrow(labelclass, labelcontent, inputdivclass, inputname, inputtype, inputplaceholder, invalid) %}
+{% from _self import input, label %}
+
+<div class="form-group row">
+  {{ label(inputname, labelcontent, labelclass, {}) }}
+  <div class="{{ inputdivclass }}">
+    {{ input(inputname, inputtype, { "class" : "form-control", "placeholder" : inputplaceholder, "required" : "true" }) }}
+    <div class="invalid-feedback">{{ invalid }}</div>
+  </div>
+</div>
+{% endmacro %}
+

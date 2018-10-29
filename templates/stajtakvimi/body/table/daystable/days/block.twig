@@ -1,0 +1,19 @@
+{% block days %}
+  {% for i in 1..7 %}
+    {% if gunler[i] is defined %}
+      <div class="days">
+        <div class="day_box">
+          {% block resmitatil %}
+          {% endblock %}
+          {% block daynumber %}
+          {% endblock %}
+          {% block stajgunu %}
+          {% endblock %}
+       </div>
+      </div>
+    {% else %}
+      <div class="days empty"></div>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
+

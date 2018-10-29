@@ -1,0 +1,22 @@
+{% block stajozet %}
+  <div class="staj_baslama_bitis_ozet">
+    {% for staj_kodu, baslama_bitis in stajtarihleri %}
+
+      <table>
+        <tr><td colspan="2" class="stajkodu"><div class="{{ staj_kodu}}_staj_kodu_kutusu">{{ (staj_kodu|split(''))|join('  ') }}</div></td></tr>
+        {% if baslama_bitis|length > 0 %}
+          <tr>
+            <td class="staj_baslama">Başlama Tarihi : <span style="text-decoration:underline">{{ baslama_bitis.baslama|date('d-m-Y') }}</span></td>
+            <td class="staj_bitis">Bitiş Tarihi : <span style="text-decoration:underline">{{ baslama_bitis.bitis|date('d-m-Y') }}</span></td>
+          </tr>
+        {% else %}
+          <tr>
+            <td colspan='2'>{{ staj_kodu }} stajını yapabilmek için yeterli gün yok</td>
+          </tr>
+        {% endif %}
+      </table>
+    {% endfor %}
+  </div>
+{% endblock %}
+
+

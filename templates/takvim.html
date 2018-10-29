@@ -1,0 +1,70 @@
+{% block takvim %}
+  {% set sablon = ['bir', 'iki'] %}
+
+  {% for yil, aylar in takvim %} {# yil for baslangic #}
+    {% for ay, haftalar in aylar %} {# ay for baslangic #}
+      {# month_table baslangic #}
+      <div class='month_container'>
+
+        {# month_table baslangic #}
+        {% block ayyil %}{% endblock %}
+        {# month_table bitis #}
+
+
+        {# weekdays_table baslangic #}
+        <div class='weekdays_table'>
+          <div class='weekdays_row'>
+            <div class='weekdays'>PAZARTESİ</div>
+            <div class='weekdays'>SALI</div>
+            <div class='weekdays'>ÇARŞAMBA</div>
+            <div class='weekdays'>PERŞEMBE</div>
+            <div class='weekdays'>CUMA</div>
+            <div class='weekdays'>CUMARTESİ</div>
+            <div class='weekdays'>PAZAR</div>
+          </div>
+        </div>
+        {# weekdays_table bitis #}
+
+
+
+        {# days_table baslangic #}
+        <div class="days_table">
+          {% for gunler in haftalar %}
+            <div class="days_row">
+              {% for i in 1..7 %}
+
+                {% if gunler[i] is defined %}
+                  <div class="days">
+                    <div class="day_box">
+                      <div class="day_number">
+                        {% set eksinif = '' %}
+                        {% if i == 6 %}
+                          {% set eksinif = ' tatilgunu' %}
+                        {% endif %}
+                        <div class="numberCircle{{ eksinif }}">{{ gunler[i]|date('j') }}</div>
+                      </div>
+
+                      {# stajin gununu yazan bolum basi #}
+                      {% for j in 0..1 %}
+                        {% if stajgunleri[j] is defined %}
+                          {% if gunler[i]|diziara(stajgunleri[j]) is not same as(false) %}
+                            <div class='staj_number_{{ sablon[j] }}'>{{ gunler[i]|diziara(stajgunleri[j])+1 }}. Gün</div>
+                          {% endif %}
+                        {% endif %}
+                      {% endfor %}
+                      {# stajin gununu yazan bolum sonu #}
+
+                    </div>
+                  </div>
+                {% else %}
+                  <div class="days empty"></div>
+                {% endif %}
+
+              {% endfor %}
+            </div> {# days_row kapanis #}
+          {% endfor %} {# hafta for kapanis #}
+        </div> {# days_table kapanis #}
+      {% endfor %} {# ay for kapanis #}
+    </div> {# month_container kapanis #}
+  {% endfor %} {# yil for kapanis #}
+{% endblock %}

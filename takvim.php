@@ -7,6 +7,7 @@ class TakvimOlustur {
   public function __construct($baslangic_tarihi, $bitis_tarihi) {
     $begin = (clone $baslangic_tarihi)->modify('first day of');
     $end = (clone $bitis_tarihi)->modify('last day of');
+    $end = $end->modify('+1 day');
 
     $interval = DateInterval::createFromDateString('1 day');
     $period = new DatePeriod($begin, $interval, $end);

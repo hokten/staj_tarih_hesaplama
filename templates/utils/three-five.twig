@@ -1,0 +1,7 @@
+<div class="form-group row">
+  {% block labelblock %}{% endblock %}
+  <div class="col-sm-{{ sutun|default(5) }}">
+    {% block inputblock %}{% endblock %}
+    <div class="invalid-feedback">{% block warningblock %}{% endblock %}</div>
+  </div>
+</div>
