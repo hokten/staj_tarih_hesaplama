@@ -1,0 +1,5 @@
+= Staj Tarihi Hesaplama Uygulaması
+Uygulama, Amasya Üniversitesi Teknik Bilimler Meslek Yüksekokulu öğrencilerinin, 
+staj yapabilmeleri için doldurup okulumuza teslim etmeleri gereken staj başvuru 
+formunda özellikle staj başlama ve bitiş tarihlerinde hata yapmalarını engellemek 
+için geliştirilmiştir.
