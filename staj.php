@@ -1,6 +1,4 @@
 <?php
-   date_default_timezone_set('Europe/London');
-
    class StajHesapla {
       public $haftalik_staj_gunu;
       public $yapilacak_staj_sayisi;

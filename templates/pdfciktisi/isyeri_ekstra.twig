@@ -3,13 +3,13 @@
     <table style="width:100%;">
       <tr class="calisanlar">
         <td>YÖNETİCİ</td>
-        <td>55</td>
+        <td>{{ ekstra.yonetici }}</td>
         <td>MÜHENDİS</td>
-        <td>58</td>
+        <td>{{ ekstra.muhendis }}</td>
         <td>TEKNİKER</td>
-        <td>45</td>
+        <td>{{ ekstra.tekniker }}</td>
         <td>TEKNİSYEN</td>
-        <td>56</td>
+        <td>{{ ekstra.teknisyen }}</td>
         <td>İŞÇİ</td>
         <td>13</td>
       </tr>
@@ -23,11 +23,11 @@
 </tr>
 <tr>
   <td rowspan="2">İşyerinde Öğrenciye Ücret Ödemesi Yapılacak mı?(Mutlaka Belirtilmesi Gerekir)</td>
-  <td rowspan="2"></td>
+  <td rowspan="2" style="text-align:center; vertical-align:middle">{{ ekstra.ucret }}</td>
   <td colspan="2">Ücret Ödemesi Yapılacaksa Personel Sayısı Bildirilmesi Zorunludur.</td>
 </tr>
 <tr>
   <td>İşletmede Çalışan Personel Sayısı</td>
-  <td></td>
+  <td style="text-align:center; vertical-align:middle">{{ ekstra.calisansayisi }}</td>
 </tr>
 

@@ -203,6 +203,25 @@
   {% endembed %}
 
   {##############################################################}
+  {######################### İşçi  ##############################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' with { sutun : 2 } %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("isci","İş Yerindeki İşçi Sayısı", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.input("isci", "number", "form-control") }}
+    {% endblock %}
+
+  {% endembed %}
+
+
+
+  {##############################################################}
   {####################Ücret Verilecek mi?#######################}
   {##############################################################}
 

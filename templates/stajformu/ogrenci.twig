@@ -3,11 +3,11 @@
     {% import "utils/macros.forms.twig" as form %}
 
     {% block labelblock %}
-      {{ form.label("numara","Öğrenci Numarası", "col-sm-3 col-form-label") }}
+      {{ form.label("numara", "Öğrenci Numarası", "col-sm-3 col-form-label") }}
     {% endblock %}
 
     {% block inputblock %}
-      {{ form.input("numara","number", "form-control", {"placeholder" : "Numaranız", "required" : "true"}) }}
+      {{ form.input("numara", "number", "form-control", {"placeholder" : "Numaranız", "required" : "true"}) }}
     {% endblock %}
 
     {% block warningblock %}
@@ -27,13 +27,35 @@
     {% endblock %}
 
     {% block inputblock %}
-      {{ form.input("adsoyad","text", "form-control") }}
+      {{ form.input("adsoyad","text", "form-control", {"placeholder" : "Ad Soyad", "required" : "true"}) }}
     {% endblock %}
 
     {% block warningblock %}
       Ad Soyad alanına değer girmediniz.
     {% endblock %}
   {% endembed %} 
+
+  {##############################################################}
+  {####################### TC Kimlik No #########################}
+  {##############################################################}
+
+  {% embed 'utils/three-five.twig' %}
+    {% import "utils/macros.forms.twig" as form %}
+
+    {% block labelblock %}
+      {{ form.label("tckimlikno","T.C. Kimlik Numaranız", "col-sm-3 col-form-label") }}
+    {% endblock %}
+
+    {% block inputblock %}
+      {{ form.input("tckimlikno", "number", "form-control", {"placeholder" : "Kimlik No", "required" : "true"}) }}
+    {% endblock %}
+
+    {% block warningblock %}
+      T.C. Kimlik numaranız hatalı
+    {% endblock %}
+  {% endembed %} 
+
+
 
   {##############################################################}
   {################## Telefon Numarası ##########################}
@@ -51,7 +73,7 @@
     {% endblock %}
 
     {% block warningblock %}
-      Telefon numarasını hatalı giriniz.
+      Telefon numarasını hatalı girdiniz.
     {% endblock %}
   {% endembed %} 
 
@@ -63,11 +85,11 @@
     {% import "utils/macros.forms.twig" as form %}
 
     {% block labelblock %}
-      {{ form.label("telefonno","Telefon Numarası", "col-sm-3 col-form-label") }}
+      {{ form.label("program","Progamınız", "col-sm-3 col-form-label") }}
     {% endblock %}
 
     {% block inputblock %}
-      {{ form.select("program","form-control", bolumprogram, "sfsdf")  }}
+      {{ form.select("program","form-control", bolumprogram, "Program")  }}
     {% endblock %}
 
     {% block warningblock %}
