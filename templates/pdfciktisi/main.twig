@@ -49,7 +49,7 @@
         </div>
 
         <div class="bolum">
-          {% embed 'tablo.twig' with {'veriler' : curstaj.isyeri_alanlari } %}
+          {% embed 'tablo.twig' with {'veriler' : curstaj.isyeri_alanlari, 'ekstra' : curstaj.isyeri_ekstra } %}
 
             {% block tablo_basligi %}
               {% include 'tablo_basligi.twig' with {'colspan' : '4', 'bolum_numarasi' : '1' , 'bolum_basligi' : 'ENDÜSTRİYE DAYALI EĞİTİM YAPILACAK YERE AİT BİLGİLER'} %}  

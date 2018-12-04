@@ -1,7 +1,6 @@
 {% block stajozet %}
   <div class="staj_baslama_bitis_ozet">
     {% for staj_kodu, baslama_bitis in stajtarihleri %}
-
       <table>
         <tr><td colspan="2" class="stajkodu"><div class="{{ staj_kodu}}_staj_kodu_kutusu">{{ (staj_kodu|split(''))|join('  ') }}</div></td></tr>
         {% if baslama_bitis|length > 0 %}
