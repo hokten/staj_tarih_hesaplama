@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 'on');
+
 require_once __DIR__ . '/vendor/autoload.php';
 require "staj.php";
 require "takvim.php";
@@ -262,11 +264,11 @@ $template = $twig->load('main.twig');
 $indenter = new \Gajus\Dindent\Indenter();
 //$output=$indenter->indent(  $output=$twig->render('html.twig', array('ogrencialanlari' => $ogrenci_alanlari))  );
 $output=$twig->render('main.twig', array('tum_veriler' => $tum_veriler));
-echo $output;
+//echo $output;
 //var_dump($output);
 //var_dump(array_filter($yapilabilecek_stajlar));
-//$mpdf->WriteHTML($output);
-//$mpdf->Output();
+$mpdf->WriteHTML($output);
+$mpdf->Output();
 
 $query = $datastore->query()
 ->kind('kayitlar');
