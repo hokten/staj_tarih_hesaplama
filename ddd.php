@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 'on');
+
 require_once __DIR__ . '/vendor/autoload.php';
 require "staj.php";
 require "takvim.php";
@@ -267,6 +269,19 @@ echo $output;
 //var_dump(array_filter($yapilabilecek_stajlar));
 //$mpdf->WriteHTML($output);
 //$mpdf->Output();
+
+$query = $datastore->query()
+->kind('kayitlar');
+//->filter('ogrencino', '=', 1236)
+//->limit(1);
+
+$result = $datastore->runQuery($query);
+foreach ($result as $task) {
+   $date=$task['baslamatarihi'];
+   var_dump($date);
+   $date1=$task['bitistarihi'];
+   var_dump($date1);
+}
 
 $query = $datastore->query()
 ->kind('kayitlar');
