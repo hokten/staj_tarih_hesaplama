@@ -23,7 +23,7 @@
          );
 
          $this->bitis=array(
-            "guz"=>new DateTime('2019-01-4'),
+            "guz"=>new DateTime('2019-01-7'),
             "bahar"=>new DateTime('2019-05-17'),
             "yaz"=>new DateTime('2019-08-29'));
             $this->resmi_tatiller=array(

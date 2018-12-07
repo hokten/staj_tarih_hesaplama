@@ -5,6 +5,9 @@
         "twig/twig": "^2.0",
         "gajus/dindent": "2.0.*",
         "google/cloud-datastore": "^1.5",
-        "nesbot/carbon": "^2.5"
+        "nesbot/carbon": "^2.5",
+        "grpc/grpc": "^1.15",
+        "google/protobuf": "^3.6",
+        "google/cloud-firestore": "^0.15.6"
     }
 }

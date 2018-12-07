@@ -8,10 +8,12 @@ require "takvim.php";
 ###################### Gcloud ###############
 
 putenv('GOOGLE_APPLICATION_CREDENTIALS=google.json');
-use Google\Cloud\Datastore\DatastoreClient;
+use Google\Cloud\Firestore\FirestoreClient;
 use Carbon\Carbon;
+$db = new FirestoreClient();
+    $docRef = $db->collection('stajlarkoleksiyonu')->document('981010_EDE101');
+ 
 $projectId = 'disco-history-206419';
-$datastore = new DatastoreClient(['projectId' => $projectId, 'namespaceId' => 'vt']);
 $kind = 'kayitlar';
 
 
@@ -37,26 +39,6 @@ $yapilabilecek_stajlar = $form_verileri["hesaplanan_baslama_bitis"];
 $stajlar_ve_tarihler = array_filter($yapilabilecek_stajlar);
 $tum_veriler = array();
 
-$queryede102 = $datastore->query()
-->kind('kayitlar')
-->filter('ogrencino', '=', intval($form_verileri['numara']))
-->filter('stajkodu', '=', 'EDE102');
-
-$queryede202 = $datastore->query()
-->kind('kayitlar')
-->filter('ogrencino', '=', $form_verileri['numara'])
-->filter('stajkodu', '=', 'EDE202');
-
-
-
-$resultede102 = $datastore->runQuery($queryede102);
-$resultede202 = $datastore->runQuery($queryede202);
-
-
-var_dump($resultede102->current());
-var_dump($resultede202->current());
-
-
 
 
 
@@ -69,8 +51,8 @@ foreach($stajlar_ve_tarihler as $staj_kodu => $baslama_bitis ) {
    $staj_sonu = $baslama_bitis["bitis"]->format('d-m-Y');
 
    ######## Gcloud ##############
-   $kayit_id = $datastore->key('stajlar', $form_verileri['numara'].'_'.$staj_kodu);
-   $kayit = $datastore->entity($kayit_id,  [
+   $docRef = $db->collection('stajlarkoleksiyonu')->document($form_verileri['numara'].'_'.$staj_kodu);
+   $docRef->set([
      'Adı Soyadı' => $form_verileri["adsoyad"],
      'Haftalık İş Günü' => intval($form_verileri['haftagun']),
      'İşçi' => intval($form_verileri['isci']),
@@ -97,11 +79,6 @@ foreach($stajlar_ve_tarihler as $staj_kodu => $baslama_bitis ) {
      'Yönetici' => intval($form_verileri['yonetici'])
    ]);
 
-   # Saves the entity
-   $datastore->upsert($kayit);
-
-
-
    $tum_veriler[] = array(
 
       'ogrenci_alanlari' => array(
@@ -123,7 +100,7 @@ foreach($stajlar_ve_tarihler as $staj_kodu => $baslama_bitis ) {
             "sag" => array("label" => "STAJ BAŞLANGIÇ TARİHİ", "value" => $staj_basi,  "class" =>"ogrsaglabel")
          ),
          array(
-            "sol" => array("label" => "TELEFON NO", "value" => "1234",  "class" =>"ogrsollabel"),
+            "sol" => array("label" => "TELEFON NO", "value" => $form_verileri['telefonno'],  "class" =>"ogrsollabel"),
             "sag" => array("label" => "STAJ BİTİŞ TARİHİ", "value" => $staj_sonu,  "class" =>"ogrsaglabel")
          )
       ),
@@ -259,37 +236,11 @@ $template = $twig->load('main.twig');
 $indenter = new \Gajus\Dindent\Indenter();
 //$output=$indenter->indent(  $output=$twig->render('html.twig', array('ogrencialanlari' => $ogrenci_alanlari))  );
 $output=$twig->render('main.twig', array('tum_veriler' => $tum_veriler));
-echo $output;
+//echo $output;
 //var_dump($output);
 //var_dump(array_filter($yapilabilecek_stajlar));
-//$mpdf->WriteHTML($output);
-//$mpdf->Output();
-
-$query = $datastore->query()
-->kind('kayitlar');
-//->filter('ogrencino', '=', 1236)
-//->limit(1);
-
-$result = $datastore->runQuery($query);
-foreach ($result as $task) {
-   $date=$task['baslamatarihi'];
-   var_dump($date);
-   $date1=$task['bitistarihi'];
-   var_dump($date1);
-}
-
-$query = $datastore->query()
-->kind('kayitlar');
-//->filter('ogrencino', '=', 1236)
-//->limit(1);
-
-$result = $datastore->runQuery($query);
-foreach ($result as $task) {
-   $date=$task['baslamatarihi'];
-   var_dump($date);
-   $date1=$task['bitistarihi'];
-   var_dump($date1);
-}
+$mpdf->WriteHTML($output);
+$mpdf->Output();
 
 
 ?>
